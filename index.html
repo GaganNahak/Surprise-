@@ -24,11 +24,11 @@
         @keyframes fall {
             from{
                 transform: translateY(-50vh);
-                scale: 1;
+                
             }
             to{
                 transform: translateY(110vh);
-                scale: 2;
+                
             }
         }
         
@@ -94,7 +94,7 @@
             audio.play()
             document.getElementById("btn-cont").style.display="none"
             document.getElementById("main-img").style.display="block"
-            setInterval(createHeart, 10);
+            setInterval(createHeart, 100);
         }
     </script>
 </body>
