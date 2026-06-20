@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: palevioletred;
+            overflow: hidden;
+        }
+        .heart{
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: fall linear forwards;
+            /* animation: sizer linear infinite; */
+            user-select: none;
+        }
+        @keyframes fall {
+            from{
+                transform: translateY(-50vh);
+                scale: 1;
+            }
+            to{
+                transform: translateY(110vh);
+                scale: 2;
+            }
+        }
+        
+        #btn-cont{
+            display: flex;
+            flex-direction: column;
+        }
+        .gif{
+            height: 200px;
+        }
+        button{
+            border: 2px solid white;
+            height: 40px;
+            width: 250px;
+            color: rgb(244, 5, 101);
+            font-size:larger;
+            background:pink;
+            border-radius: 5px;
+        }
+        #main-img{
+            height: 100vh;
+            width: 100vw;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="cont">
+        <div id="btn-cont">
+            <img src="6bf063b0a6b5985b8a812385a53d24af.gif" alt="" class="gif">
+            <button onclick="surPrize()">Hey Click It</button>
+            <img src="6bf063b0a6b5985b8a812385a53d24af.gif" alt="" class="gif">
+        </div>
+            
+        
+        <div id="subj-cont">
+            <img src="IMG_20260620_132747 - Copy.png" alt="" id="main-img">
+            <audio src="tate-jebe-dekhe-southmelody_hZbBDnIy.mp3" id="audio"></audio>
+        </div>
+    </div>
+    <script>
+        function createHeart(){
+
+            let heart=document.createElement("div")
+            heart.classList.add("heart")
+            heart.innerHTML="❤️"
+            
+            heart.style.left=Math.random()*window.innerWidth+"px"
+            heart.style.fontSize=(Math.random()*20+15)+"px"
+            
+
+            const duration=Math.random()*3+2
+            heart.style.animationDuration=duration+"s"
+            document.body.appendChild(heart)
+            setTimeout(() => {
+                i=0
+                heart.remove()
+            }, duration*1000);
+
+        }
+        function surPrize(){
+            let audio=document.getElementById("audio")
+            audio.play()
+            document.getElementById("btn-cont").style.display="none"
+            document.getElementById("main-img").style.display="block"
+            setInterval(createHeart, 10);
+        }
+    </script>
+</body>
+</html>
